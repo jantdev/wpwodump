@@ -1,0 +1,226 @@
+.hero {
+  background: var(--primarycolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+  width: 100%;
+}
+
+.hero .greetings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+.hero .greetings .profilpicture {
+  background: #000;
+  border-radius: 50%;
+  margin-right: 2rem;
+  overflow: hidden;
+  width: 255px;
+  height: 255px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.hero .greetings .profilpicture img {
+  width: 255px;
+  margin-top: -37px;
+}
+
+.hero .greetings .hello h1 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  letter-spacing: -1.2px;
+}
+.hero .greetings .hello {
+  text-align: center;
+}
+.hero .greetings .hello p {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: var(--primarycolor);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: calc(100vh - 70px);
+  z-index: 0;
+}
+
+.hero .moreinfo {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+.hero .moreinfo a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero .moreinfo a .arrordown {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+  border: solid white;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  animation: upanddown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  z-index: 2;
+}
+
+@keyframes upanddown {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 40px;
+  }
+  100% {
+    top: 1px;
+  }
+}
+
+@media only screen and (min-width: 376px) {
+  .hero .greetings {
+    z-index: 2;
+  }
+  .hero .greetings .profilpicture {
+    width: 255px;
+    height: 255px;
+  }
+
+  .hero .greetings .profilpicture img {
+    width: 255px;
+    margin-top: -37px;
+  }
+  .hero .greetings .hello {
+    text-align: center;
+  }
+  .hero .moreinfo {
+    width: 100%;
+  }
+
+  .hero .moreinfo a .arrordown {
+    width: 40px;
+    height: 40px;
+  }
+  @keyframes upanddown {
+    0% {
+      top: 0px;
+    }
+    50% {
+      top: 50px;
+    }
+    100% {
+      top: 1px;
+    }
+  }
+}
+@media only screen and (min-width: 569px) {
+  .hero .greetings .hello {
+    text-align: left;
+    padding-left: 2rem;
+  }
+  @keyframes upanddown {
+    0% {
+      top: -10px;
+    }
+    50% {
+      top: 10px;
+    }
+    100% {
+      top: -11px;
+    }
+  }
+}
+@media only screen and (min-width: 737px) {
+  .hero .moreinfo {
+    position: absolute;
+
+    top: calc(100vh - 60px);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .hero .moreinfo {
+    position: relative;
+    top: unset;
+  }
+
+  .hero .moreinfo a .arrordown {
+    width: 80px;
+    height: 80px;
+    border-width: 0 14px 14px 0;
+  }
+
+  .hero::after {
+    width: 300px;
+    height: 300px;
+
+    top: calc(100vh - 200px);
+  }
+
+  @keyframes upanddown {
+    0% {
+      top: 0px;
+    }
+    50% {
+      top: 50px;
+    }
+    100% {
+      top: 1px;
+    }
+  }
+}
+
+@media screen and (width: 568px) and (orientation: landscape) {
+  .hero .greetings .profilpicture {
+    width: 155px;
+    height: 155px;
+  }
+  .hero .greetings .profilpicture img {
+    width: 155px;
+    margin-top: -37px;
+  }
+  .hero .greetings .hello {
+    text-align: left;
+    padding-left: 2rem;
+  }
+  .hero .greetings .hello p {
+    font-size: 1rem;
+  }
+
+  @keyframes upanddown {
+    0% {
+      top: -10px;
+    }
+    50% {
+      top: 10px;
+    }
+    100% {
+      top: -11px;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.product {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+  width: 90vw;
+  margin: auto;
+}
+
+.product .intro h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+.product .intro p {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.476;
+  letter-spacing: 0px;
+  margin: 20px 0 0;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.product .display {
+  background: #fff;
+  color: #111;
+}
+
+.product .display .img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 2rem 1rem;
+}
+
+.product .display .capturetext {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  padding: 1rem;
+}
+
+.product .display .img img {
+  width: 100%;
+
+  height: auto;
+}
+
+.linkcontent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.wp-block-button__link {
+  background: var(--primarycolor);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .product {
+    max-width: 1140px;
+  }
+  .product .intro h3 {
+    font-size: 3rem;
+    letter-spacing: -1.36px;
+    margin: 20px 0 0;
+    margin-bottom: 1rem;
+  }
+  .product .intro p {
+    font-size: 1.4rem;
+  }
+  .product .display .img {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .PostDanmarkePosthuset .display .img,
+  .PostDanmarkPakkeboks .display .img,
+  .Humledrengene .display .img {
+    flex-direction: column;
+  }
+
+  .PostDanmarkePosthuset .display .img img,
+  .PostDanmarkPakkeboks .display .img img {
+    max-width: 530px;
+    border: 1px solid #ccc;
+  }
+
+  .product .display .capturetext {
+    font-size: 1.6rem;
+  }
+
+  .linkcontent {
+    height: 160px;
+  }
+  .wp-block-button__link {
+    padding: 1.6rem 3rem;
+    border-radius: 4px;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  .PostDanmarkePosthuset .display .img,
+  .PostDanmarkPakkeboks .display .img {
+    flex-direction: row;
+  }
+}

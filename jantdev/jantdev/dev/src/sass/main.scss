@@ -1,0 +1,83 @@
+.quot {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quot .storytelling {
+  font-size: 1.5rem;
+  width: 90vw;
+  font-style: italic;
+  text-align: center;
+}
+
+.quot .linkportfolio {
+  background: var(--primarycolor);
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border: 0;
+  border-radius: 4px;
+}
+
+.headline {
+  background: var(--headlinecolor);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.headline h2 {
+  font-size: 2rem;
+}
+.btn--link {
+  padding: 1.6rem 3rem;
+  border-radius: 4px;
+  font-size: 1.5rem;
+}
+.morewebsites {
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nextthing {
+  max-width: var(--pagemaxwidth);
+}
+
+@media only screen and (min-width: 376px) {
+  .quot .storytelling {
+    font-size: 1.5rem;
+  }
+  .headline {
+    background: var(--headlinecolor);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headline h2 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 736px) {
+  .quot .storytelling {
+    font-size: 1.8rem;
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .quot .storytelling {
+    font-size: 3rem;
+    width: 60vw;
+  }
+  .headline {
+    height: 320px;
+  }
+}

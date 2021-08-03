@@ -1,0 +1,155 @@
+.contact {
+  margin-top: 3rem;
+  background: #89a8c6;
+  padding-bottom: 4rem;
+  width: 100%;
+
+  .success_message,
+  .error_message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h4 {
+      margin-top: 3rem;
+      font-size: 2rem;
+    }
+  }
+
+  .contactForm {
+    .contact-info {
+      width: var(--pagewidth);
+      max-width: var(--pagemaxwidth);
+      margin: auto;
+      padding-top: 2rem;
+    }
+    .grid-contact {
+      width: var(--pagewidth);
+      max-width: var(--pagemaxwidth);
+      display: grid;
+      grid-template-columns: 1fr 1rem 1fr;
+      grid-template-rows: 38px 38px 38px 38px 38px 140px 140px;
+      margin: auto;
+
+      input,
+      textarea {
+        border: 0px;
+      }
+      input[placeholder] {
+        font-family: "Titillium Web", sans-serif;
+        padding-left: 10px;
+        font-size: 1rem;
+      }
+      textarea[placeholder] {
+        font-family: "Titillium Web", sans-serif;
+        font-size: 1rem;
+        padding: 10px 0px 0px 10px;
+      }
+      .iemail {
+        grid-row: 2/3;
+        grid-column: 1 / span 3;
+      }
+      .name {
+        grid-row: 3/4;
+        grid-column: 1/2;
+      }
+      .iname {
+        grid-row: 4/5;
+        grid-column: 1 / span 3;
+      }
+      .message {
+        grid-row: 5/6;
+        grid-column: 1/2;
+      }
+      .imessage {
+        grid-row: 6/7;
+        grid-column: 1 / span 3;
+      }
+      .submit-container {
+        grid-row: 7/8;
+        grid-column: 1/2;
+      }
+      label {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      .submit-container button {
+        background-color: var(--primarycolor);
+        margin-top: 1rem;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .contact {
+    h3 {
+      margin: 55px 0px;
+      text-align: center;
+    }
+    p {
+      font-size: 1.32rem;
+      font-weight: 400;
+      line-height: 1.47;
+      letter-spacing: 0px;
+    }
+    .contactForm {
+      .grid-contact {
+        display: grid;
+        grid-template-columns: 1fr 3rem 1fr;
+        grid-template-rows: 38px 82px 76px 140px 140px;
+        margin-top: 20px;
+        input[placeholder] {
+          padding-left: 20px;
+          font-size: 1.3rem;
+        }
+        textarea[placeholder] {
+          font-size: 1.3rem;
+          padding: 20px 0px 0px 20px;
+        }
+        .email {
+          grid-column: 1/2;
+          grid-row: 1/2;
+        }
+        .iemail {
+          grid-column: 1/2;
+          grid-row: 2/3;
+        }
+
+        .name {
+          grid-column: 3/4;
+          grid-row: 1/2;
+        }
+        .iname {
+          grid-column: 3/4;
+          grid-row: 2/3;
+        }
+
+        .message {
+          padding-top: 33px;
+          grid-column: 1 / span 3;
+          grid-row: 3/4;
+        }
+
+        .imessage {
+          grid-column: 1 / span 3;
+          grid-row: 4/5;
+        }
+        .submit-container {
+          grid-column: 1 / span 3;
+          grid-row: 5/6;
+        }
+        .submit-container .btn-submit {
+          margin-top: 2rem;
+        }
+
+        label {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
