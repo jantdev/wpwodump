@@ -97,7 +97,7 @@ function my_ajax_without_file() { ?>
                 let product_id = post_id[0].replace(/[^0-9]/g, '');
 
                 let ajaxurl = '<?php echo get_site_url()?>/ajax_api/product/'+product_id;
-                 
+                 console.log(ajaxurl);
                 var data = {
                     'action': 'frontend_action_without_file', 
                     'product_id':product_id,

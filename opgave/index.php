@@ -50,7 +50,13 @@ Text Domain: opgave
           </div>
         </div>
       
-<?php echo do_shortcode("[caruosel]"); ?>
+              <?php
+              /*get caruosel*/
+                if(is_active_sidebar( 'opgave_sidebar_carousel_widget' )){?>
+                      <?php dynamic_sidebar( 'opgave_sidebar_carousel_widget' ); ?>
+                <?php
+                }
+              ?>
           </div>
 
 <?php get_footer(); ?>
