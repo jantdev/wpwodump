@@ -5,12 +5,11 @@
  */
 
 
+
+
 if (!defined('ABSPATH')) {
     exit;
 }
-
-
-
 
 include_once get_template_directory() . '/inc/customizer.php';
 
@@ -197,47 +196,39 @@ function opgave_add_new_post_to_new_catgory(){
 
 add_action('after_setup_theme','opgave_add_new_post_to_new_catgory');
 
-/*Setup sidebar */
-function setup_sidebar(){
-    register_sidebar( array(
-        'name'=>esc_html__('Page Sidebar','Opgave'),
-        'id'=>'opgave_sidebar_carousel_widget',
-        'decription'=> esc_html__('Opgave sidebar for caruosel'),
-    	'before_widget' => '<section id="%1$s" class="widget opgave_sidebar_carousel_widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',    
-    ) );
-}
-
-add_action('widgets_init','setup_sidebar');
-
 
 class opgave_carousel_widget extends WP_Widget{
     public function __construct(){
         parent::__construct(
             'opgave_carousel_widget',
-            'Opgave Carousel'
-            );
+            'Opgave Carousel',
+            array(
+                'description' => __('Opgave Carousel', 'Opgave' ),
+                'customize_selective_refresh' => true,
+            )
+            
+        );
     }
     public function widget($args,$instance){
          extract( $args );
 
         if(!$instance['title']){
-            $instance['title']='The title';
+            $instance['title']='Opgave Carousel';
         }
        
         $title = apply_filters( 'widget_title', $instance['title'] );
  
-        echo $before_widget;
+       
        
         if(is_admin()):
-             if ( ! empty( $title ) ) {
-            echo $before_title . $title . $after_title;
-        }
+            echo $before_widget;
+            if ( ! empty( $title ) ) {
+                echo $before_title . $title . $after_title;
+            }
             ?>
-        <p>The Carousel widget</p>
+            <p>The Carousel widget</p>
             <?php
+             echo $after_widget;
         else:
 
         $caruosel=setup_carousel_images();
@@ -268,7 +259,7 @@ class opgave_carousel_widget extends WP_Widget{
     </div>
       <?php
       endif;
-        echo $after_widget;
+       
 
     }
 
@@ -297,6 +288,119 @@ class opgave_carousel_widget extends WP_Widget{
 }
 
 function opgave_register_carousel_widget(){
+
+    $SB = get_option( 'sidebars_widgets' );
+  
+
     register_widget( 'opgave_carousel_widget' );
+    update_option('widget_opgave_carousel_widget',array(2=>array('title'=>'Opgave widget'),'_multiwidget'=>1));
+
+    register_sidebar( array(
+        'name'=>esc_html__('Opgave Sidebar','Opgave'),
+        'id'=>'opgave_sidebar',
+        'decription'=> esc_html__('Opgave sidebar for caruosel'),
+        'before_widget' => '<section id="%1$s" class="widget opgave_sidebar_carousel_widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',    
+    ) );
+
+    $SB['opgave_sidebar']=array();  
+    update_option('sidebars_widgets',$SB);
+
+    $SB['opgave_sidebar']=array(10=>'opgave_carousel_widget-2');    
+    update_option('sidebars_widgets',$SB);
+
+    $SBI = $SB['wp_inactive_widgets'];
+
+    $SB['wp_inactive_widgets']=array_filter($SBI, function($k) {
+        return $k != 'opgave_carousel_widget-2';    
+    }, ARRAY_FILTER_USE_KEY);
+
+    update_option('sidebars_widgets',$SB);
+
 }
 add_action('widgets_init','opgave_register_carousel_widget');
+
+
+  /*
+
+   a:4:{s:19:"wp_inactive_widgets";a:3:{i:0;s:7:"block-5";i:1;s:7:"block-6";i:2;s:7:"block-7";}s:9:"sidebar-1";a:2:{i:0;s:7:"block-8";i:1;s:7:"block-9";}s:9:"sidebar-2";a:0:{}s:13:"array_version";i:3;}
+
+      $NewSB = get_option( 'sidebars_widgets' );
+    $NewSB['opgave_sidebar']=array(10=>'opgave_carousel_widget-2');    
+    update_option('sidebars_widgets',$NewSB);
+       
+    update_option('sidebars_widgets',array(
+        array('wp_inactive_widgets'=>$SBI),
+        array('opgave_sidebar'=>array(0=>'opgave_carousel_widget-2')),
+        array('array_version'=>$SBV)
+    ));
+
+    maybe_serialize($SBI)
+
+
+SELECT * FROM `wp_options` WHERE `option_name`like '%widget%'
+     
+       var_dump(empty($SB['opgave_sidebar']));
+   
+    $OW = get_option( 'widget_opgave_carousel_widget' );
+    
+    if(isset($OW)){
+        update_option('widget_opgave_carousel_widget',array(2=>array('title'=>'Opgave widget'),'_multiwidget'=>1));
+    }
+    if(isset($SB) && is_array($SB['opgave_sidebar']) && empty($SB['opgave_sidebar'])){
+        $SB['opgave_sidebar']=array(10=>'opgave_carousel_widget-2');
+        update_option('sidebars_widgets',$SB);
+    } 
+    
+    a:4:{s:19:"wp_inactive_widgets";a:3:{i:0;s:7:"block-5";i:1;s:7:"block-6";i:2;s:7:"block-7";}s:9:"sidebar-1";a:2:{i:0;s:7:"block-8";i:1;s:7:"block-9";}s:9:"sidebar-2";a:0:{}s:13:"array_version";i:3;}
+
+a:3:
+{
+    s:19:"wp_inactive_widgets";
+    a:6:
+    {
+        i:0;s:7:"block-8";
+        i:1;s:7:"block-9";
+        i:2;s:24:"opgave_carousel_widget-2";
+        i:3;s:7:"block-5";
+        i:4;s:7:"block-6";
+        i:5;s:7:"block-7";
+    }
+    s:14:"opgave_sidebar";
+    a:1:
+    {
+        i:10;s:24:"opgave_carousel_widget-2";
+    }
+    s:13:"array_version";
+    i:3;
+}
+
+a:3:
+{
+    s:19:"wp_inactive_widgets";
+    a:6:{
+        i:0;s:7:"block-8";
+        i:1;s:7:"block-9";
+        i:2;s:24:"opgave_carousel_widget-2";
+        i:3;s:7:"block-5";
+        i:4;s:7:"block-6";
+        i:5;s:7:"block-7";
+    }
+    s:14:"opgave_sidebar";
+    a:1:
+    {
+        i:0;
+        s:24:"opgave_carousel_widget-2";
+    }
+    s:13:"array_version";
+    i:3;
+}
+
+
+
+
+ 
+
+ */
