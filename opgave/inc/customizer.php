@@ -81,6 +81,6 @@ function opgave_register_carousel_images( $wp_customize){
     }
 }
 
-add_action( 'customize_register', 'opgave_register_carousel_images' );
+//add_action( 'customize_register', 'opgave_register_carousel_images' );
 
 

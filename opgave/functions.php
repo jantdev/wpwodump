@@ -5,8 +5,6 @@
  */
 
 
-
-
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -321,86 +319,3 @@ function opgave_register_carousel_widget(){
 
 }
 add_action('widgets_init','opgave_register_carousel_widget');
-
-
-  /*
-
-   a:4:{s:19:"wp_inactive_widgets";a:3:{i:0;s:7:"block-5";i:1;s:7:"block-6";i:2;s:7:"block-7";}s:9:"sidebar-1";a:2:{i:0;s:7:"block-8";i:1;s:7:"block-9";}s:9:"sidebar-2";a:0:{}s:13:"array_version";i:3;}
-
-      $NewSB = get_option( 'sidebars_widgets' );
-    $NewSB['opgave_sidebar']=array(10=>'opgave_carousel_widget-2');    
-    update_option('sidebars_widgets',$NewSB);
-       
-    update_option('sidebars_widgets',array(
-        array('wp_inactive_widgets'=>$SBI),
-        array('opgave_sidebar'=>array(0=>'opgave_carousel_widget-2')),
-        array('array_version'=>$SBV)
-    ));
-
-    maybe_serialize($SBI)
-
-
-SELECT * FROM `wp_options` WHERE `option_name`like '%widget%'
-     
-       var_dump(empty($SB['opgave_sidebar']));
-   
-    $OW = get_option( 'widget_opgave_carousel_widget' );
-    
-    if(isset($OW)){
-        update_option('widget_opgave_carousel_widget',array(2=>array('title'=>'Opgave widget'),'_multiwidget'=>1));
-    }
-    if(isset($SB) && is_array($SB['opgave_sidebar']) && empty($SB['opgave_sidebar'])){
-        $SB['opgave_sidebar']=array(10=>'opgave_carousel_widget-2');
-        update_option('sidebars_widgets',$SB);
-    } 
-    
-    a:4:{s:19:"wp_inactive_widgets";a:3:{i:0;s:7:"block-5";i:1;s:7:"block-6";i:2;s:7:"block-7";}s:9:"sidebar-1";a:2:{i:0;s:7:"block-8";i:1;s:7:"block-9";}s:9:"sidebar-2";a:0:{}s:13:"array_version";i:3;}
-
-a:3:
-{
-    s:19:"wp_inactive_widgets";
-    a:6:
-    {
-        i:0;s:7:"block-8";
-        i:1;s:7:"block-9";
-        i:2;s:24:"opgave_carousel_widget-2";
-        i:3;s:7:"block-5";
-        i:4;s:7:"block-6";
-        i:5;s:7:"block-7";
-    }
-    s:14:"opgave_sidebar";
-    a:1:
-    {
-        i:10;s:24:"opgave_carousel_widget-2";
-    }
-    s:13:"array_version";
-    i:3;
-}
-
-a:3:
-{
-    s:19:"wp_inactive_widgets";
-    a:6:{
-        i:0;s:7:"block-8";
-        i:1;s:7:"block-9";
-        i:2;s:24:"opgave_carousel_widget-2";
-        i:3;s:7:"block-5";
-        i:4;s:7:"block-6";
-        i:5;s:7:"block-7";
-    }
-    s:14:"opgave_sidebar";
-    a:1:
-    {
-        i:0;
-        s:24:"opgave_carousel_widget-2";
-    }
-    s:13:"array_version";
-    i:3;
-}
-
-
-
-
- 
-
- */

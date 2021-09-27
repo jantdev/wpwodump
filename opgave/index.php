@@ -49,14 +49,16 @@ Text Domain: opgave
           
           </div>
         </div>
-      
+   
               <?php
-              /*get caruosel*/
-                if(is_active_sidebar( 'opgave_sidebar_carousel_widget' )){?>
-                      <?php dynamic_sidebar( 'opgave_sidebar_carousel_widget' ); ?>
-                <?php
+              /*get caruosel widget*/
+
+
+                if(is_active_sidebar( 'opgave_sidebar' )){
+                      dynamic_sidebar( 'opgave_sidebar' ); 
                 }
               ?>
+             
           </div>
 
 <?php get_footer(); ?>
